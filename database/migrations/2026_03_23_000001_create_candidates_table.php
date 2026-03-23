@@ -1,0 +1,28 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+    public function up(): void
+    {
+        Schema::create('candidates', function (Blueprint $table): void {
+            $table->id();
+            $table->string('external_id')->unique();
+            $table->string('name');
+            $table->string('mandalam')->index();
+            $table->string('party');
+            $table->text('biography')->nullable();
+            $table->string('profile_image_url')->nullable();
+            $table->json('contacts')->nullable();
+            $table->json('social_media')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('candidates');
+    }
+};

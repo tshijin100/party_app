@@ -1,0 +1,4 @@
+#!/usr/bin/env php
+<?php
+
+echo "Laravel dependencies are not installed in this offline environment. Run composer install in a network-enabled environment to bootstrap the app.\n";
